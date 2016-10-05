@@ -169,7 +169,7 @@ void parseCommandLine ( char *command )
         }
     }
     int exit = run_process ( command , args , flags , inputFile , outputFile );
-    printf("EXIT: %d/n",exit);
+    printf("Exit: %d/n",exit);
 }
 
 int main ( )
