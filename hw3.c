@@ -168,7 +168,8 @@ void parseCommandLine ( char *command )
             i++;
         }
     }
-    run_process ( command , args , flags , inputFile , outputFile );
+    int exit = run_process ( command , args , flags , inputFile , outputFile );
+    printf("EXIT: %d",exit);
 }
 
 int main ( )
