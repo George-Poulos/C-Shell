@@ -12,7 +12,6 @@
 
 void sigint_handler(int sig){
 	printf("SIGINT handled.\n ");
-	printf("361> ");
 }
 
 int run_process ( char *command , char ** args  , int files , char * inputFile , char * outputFile )
@@ -178,6 +177,7 @@ void parseCommandLine ( char *command )
 
 int main ( )
 {
+    signal(SIGINT, sigint_handler);
     char command[1000];
     while (1)
     {
