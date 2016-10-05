@@ -10,6 +10,10 @@
 
 #define KILLVAL -1
 
+void sigint_handler(int sig){
+	printf("SIGINT handled.\n ");
+	printf("361> ");
+}
 
 int run_process ( char *command , char ** args  , int files , char * inputFile , char * outputFile )
 {
