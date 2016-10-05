@@ -14,7 +14,7 @@
 int run_process ( char *command , char ** args  , int files , char * inputFile , char * outputFile )
 {
     int pid = fork();
-    printf("%d\n",pid);
+    printf("PID: %d\n",pid);
     int status = 0;
     if (pid != 0)
     {
