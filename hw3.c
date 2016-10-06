@@ -18,7 +18,7 @@ void sig_handler(int sig){
 	}
 	if(sig == SIGTSTP){
 		signal(SIGTSTP,sig_handler);
-        	printf("SIGTSP handled.\n");
+        	printf("SIGTSTP handled.\n");
         	fflush(stdout);
 	}
 }
