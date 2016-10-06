@@ -13,12 +13,12 @@
 void sig_handler(int sig){
 	if(sig == SIGINT){
 		signal(SIGINT,sig_handler);
-		printf("SIGINT handled.");
+		printf("SIGINT handled.\n");
 		fflush(stdout);
 	}
 	if(sig == SIGTSTP){
 		signal(SIGTSTP,sig_handler);
-        	printf("SIGTSP handled.");
+        	printf("SIGTSP handled.\n");
         	fflush(stdout);
 	}
 }
