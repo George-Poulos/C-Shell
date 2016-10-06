@@ -10,8 +10,17 @@
 
 #define KILLVAL -1
 
-void sigint_handler(int sig){
-	printf("SIGINT handled.\n ");
+void sig_handler(int sig){
+	if(sig == SIGINT){
+		signal(SIGINT,sig_handler);
+		printf("SIGINT handled.");
+		fflush(stdout);
+	}
+	if(sig == SIGTSTP){
+		signal(SIGTSTP,sig_handler);
+        	printf("SIGTSP handled.");
+        	fflush(stdout);
+	}
 }
 
 int run_process ( char *command , char ** args  , int files , char * inputFile , char * outputFile )
@@ -172,12 +181,13 @@ void parseCommandLine ( char *command )
         }
     }
     int exit = run_process ( command , args , flags , inputFile , outputFile );
-    printf("Exit: %d/n",exit);
+    printf("Exit: %d \n",exit);
 }
 
 int main ( )
 {
-    signal(SIGINT, sigint_handler);
+    signal(SIGINT, sig_handler);
+    signal(SIGTSTP,sig_handler);
     char command[1000];
     while (1)
     {
